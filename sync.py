@@ -20,8 +20,9 @@ def main():
     print "directory is ", directory
 
     print "--------- add all changes ------------------"
-    process = subprocess.Popen(["git", "add", "*.py"], stdout=subprocess.PIPE)
-    output = process.communicate()[0]
+    for FILE in FILES_INCLUDED:
+        process = subprocess.Popen(["git", "add", FILE], stdout=subprocess.PIPE)
+        output = process.communicate()[0]
     
     print "--------- commit all changes ---------------"
     process = subprocess.Popen(["git", "commit", "-m", "auto-sync"], stdout=subprocess.PIPE)
