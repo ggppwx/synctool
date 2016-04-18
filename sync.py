@@ -16,10 +16,13 @@ def main():
             
     print "directory is ", directory
 
-    print "--------- commit all changes ---------------"
+    print "--------- add all changes ------------------"
 
     
-
+    print "--------- commit all changes ---------------"
+    process = subprocess.Popen(["git", "commit", "-am", "auto-sync"], stdout=subprocess.PIPE)
+    output = process.communicate()[0]
+    
     print "--------- pull from repository ----------------"
     process = subprocess.Popen(["git", "pull"], stdout=subprocess.PIPE)
     output = process.communicate()[0]
