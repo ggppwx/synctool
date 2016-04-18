@@ -2,6 +2,9 @@
 import sys, getopt
 import subprocess
 
+FILES_INCLUDED = ["*.py"]
+
+
 
 # main function 
 def main():
@@ -17,10 +20,11 @@ def main():
     print "directory is ", directory
 
     print "--------- add all changes ------------------"
-
+    process = subprocess.Popen(["git", "add", "*.py"], stdout=subprocess.PIPE)
+    output = process.communicate()[0]
     
     print "--------- commit all changes ---------------"
-    process = subprocess.Popen(["git", "commit", "-am", "auto-sync"], stdout=subprocess.PIPE)
+    process = subprocess.Popen(["git", "commit", "-m", "auto-sync"], stdout=subprocess.PIPE)
     output = process.communicate()[0]
     
     print "--------- pull from repository ----------------"
