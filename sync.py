@@ -2,7 +2,7 @@
 import sys, getopt
 import subprocess
 
-FILES_INCLUDED = ["*.py"]
+FILES_INCLUDED = ["*.py", "*.cpp"]
 
 
 
