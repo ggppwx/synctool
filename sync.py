@@ -4,8 +4,6 @@ import subprocess
 
 FILES_INCLUDED = ["*.py", "*.cpp"]
 
-
-
 # main function 
 def main():
     directory = ""
@@ -34,7 +32,7 @@ def main():
 
     print "--------- push to repository ------------------"
     process = subprocess.Popen(["git", "push"], stdout=subprocess.PIPE)
-    output = process.communicate()[0]
+    output = process.communicate()
     
     print "output->", output
     
